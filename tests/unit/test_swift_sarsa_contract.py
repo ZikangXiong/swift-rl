@@ -45,7 +45,11 @@ def test_swift_sarsa_forward_shape():
     num_actions = 4
 
     swift_sarsa = SwiftSARSA(
-        feature_dim=feature_dim, num_actions=num_actions, alpha=0.1, gamma=0.99, lambda_=0.9
+        feature_dim=feature_dim,
+        num_actions=num_actions,
+        alpha=0.1,
+        gamma=0.99,
+        lambda_=0.9,
     )
 
     features = torch.randn(batch_size, feature_dim)

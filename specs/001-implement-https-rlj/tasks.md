@@ -94,13 +94,13 @@
 
 
 ## Phase 3.7: Polish & Validation
-- [ ] T039 Run black on all Python files in swift_rl/, tests/, examples/
-- [ ] T040 Run isort on all Python files in swift_rl/, tests/, examples/
-- [ ] T041 Run mypy type checking on swift_rl/ directory
-- [ ] T042 Run pytest with coverage (pytest --cov=swift_rl --cov-report=html)
-- [ ] T043 Verify test coverage >80%
-- [ ] T044 Verify no function exceeds 20 lines (excluding docstrings and blank lines)
-- [ ] T045 Run all examples to verify they execute without errors
+- [x] T039 Run black on all Python files in swift_rl/, tests/, examples/
+- [x] T040 Run isort on all Python files in swift_rl/, tests/, examples/
+- [x] T041 Run mypy type checking on swift_rl/ directory
+- [x] T042 Run pytest with coverage (pytest --cov=swift_rl --cov-report=html)
+- [x] T043 Verify test coverage >80%
+- [x] T044 Verify no function exceeds 20 lines (excluding docstrings and blank lines)
+- [x] T045 Run all examples to verify they execute without errors
 - [ ] T046 [P] Performance profiling for batch processing efficiency
 - [ ] T047 Create pre-commit hook configuration (.pre-commit-config.yaml) for black and isort
 
