@@ -78,11 +78,11 @@
 
 ## Phase 3.5: Integration Tests
 - [x] T027 Integration test for SwiftTD convergence on prediction task in tests/integration/test_swift_td_convergence.py
-- [ ] T028 Integration test for SwiftSARSA control on tabular MDP in tests/integration/test_swift_sarsa_control.py
-- [ ] T029 Integration test for neural network integration (gradient flow) in tests/integration/test_neural_network_integration.py
-- [ ] T030 Integration test for batch processing scaling (1 to 128 environments) in tests/integration/test_batch_scaling.py
-- [ ] T031 Integration test for GPU vs CPU consistency in tests/integration/test_gpu_cpu_consistency.py
-- [ ] T032 Integration test for automatic terminal reset in tests/integration/test_terminal_handling.py
+- [x] T028 Integration test for SwiftSARSA control on tabular MDP in tests/integration/test_swift_sarsa_control.py
+- [x] T029 Integration test for neural network integration (gradient flow) in tests/integration/test_neural_network_integration.py
+- [x] T030 Integration test for batch processing scaling (1 to 128 environments) in tests/integration/test_batch_scaling.py
+- [x] T031 Integration test for GPU vs CPU consistency in tests/integration/test_gpu_cpu_consistency.py
+- [x] T032 Integration test for automatic terminal reset in tests/integration/test_terminal_handling.py
 
 ## Phase 3.6: Examples & Documentation
 - [x] T033 [P] Create standalone SwiftTD example in examples/standalone_swift_td.py
@@ -101,8 +101,8 @@
 - [x] T043 Verify test coverage >80%
 - [x] T044 Verify no function exceeds 20 lines (excluding docstrings and blank lines)
 - [x] T045 Run all examples to verify they execute without errors
-- [ ] T046 [P] Performance profiling for batch processing efficiency
-- [ ] T047 Create pre-commit hook configuration (.pre-commit-config.yaml) for black and isort
+- [x] T046 [P] Performance profiling for batch processing efficiency
+- [x] T047 Create pre-commit hook configuration (.pre-commit-config.yaml) for black and isort
 
 ## Dependencies
 **Setup → Tests → Implementation → Unit Tests → Integration → Examples → Polish**
