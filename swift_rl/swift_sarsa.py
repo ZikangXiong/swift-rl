@@ -49,11 +49,18 @@ class SwiftSARSA(nn.Module):
         self.register_buffer(
             "eligibility_traces", torch.zeros(1, num_actions, feature_dim)
         )
-        self.register_buffer("step_sizes", torch.ones(1, num_actions, feature_dim) * alpha)
+        self.register_buffer(
+            "step_sizes", torch.ones(1, num_actions, feature_dim) * alpha
+        )
         self.register_buffer("prev_action_values", torch.zeros(1, num_actions))
 
     def _validate_params(
-        self, feature_dim: int, num_actions: int, alpha: float, gamma: float, lambda_: float
+        self,
+        feature_dim: int,
+        num_actions: int,
+        alpha: float,
+        gamma: float,
+        lambda_: float,
     ) -> None:
         """Validate hyperparameters."""
         if feature_dim <= 0:
@@ -104,7 +111,10 @@ class SwiftSARSA(nn.Module):
         """Expand eligibility traces buffer."""
         diff = batch_size - self.eligibility_traces.shape[0]
         new_traces = torch.zeros(
-            diff, self.num_actions, self.feature_dim, device=self.eligibility_traces.device
+            diff,
+            self.num_actions,
+            self.feature_dim,
+            device=self.eligibility_traces.device,
         )
         self.eligibility_traces = torch.cat([self.eligibility_traces, new_traces])
 
@@ -112,7 +122,9 @@ class SwiftSARSA(nn.Module):
         """Expand step-sizes buffer."""
         diff = batch_size - self.step_sizes.shape[0]
         new_sizes = (
-            torch.ones(diff, self.num_actions, self.feature_dim, device=self.step_sizes.device)
+            torch.ones(
+                diff, self.num_actions, self.feature_dim, device=self.step_sizes.device
+            )
             * self.alpha
         )
         self.step_sizes = torch.cat([self.step_sizes, new_sizes])
@@ -120,7 +132,9 @@ class SwiftSARSA(nn.Module):
     def _expand_prev_values(self, batch_size: int) -> None:
         """Expand prev_action_values buffer."""
         diff = batch_size - self.prev_action_values.shape[0]
-        new_val = torch.zeros(diff, self.num_actions, device=self.prev_action_values.device)
+        new_val = torch.zeros(
+            diff, self.num_actions, device=self.prev_action_values.device
+        )
         self.prev_action_values = torch.cat([self.prev_action_values, new_val])
 
     def _compute_action_values(self, features: torch.Tensor) -> torch.Tensor:
@@ -133,7 +147,11 @@ class SwiftSARSA(nn.Module):
         """Compute TD error: δ = r + γQ(s',a') - Q(s,a), shape (batch,)."""
         batch_size = reward.shape[0]
         current_q = action_values.gather(1, action.unsqueeze(1)).squeeze(1)
-        prev_q = self.prev_action_values[:batch_size].gather(1, action.unsqueeze(1)).squeeze(1)
+        prev_q = (
+            self.prev_action_values[:batch_size]
+            .gather(1, action.unsqueeze(1))
+            .squeeze(1)
+        )
         return reward + self.gamma * current_q - prev_q
 
     def _update_traces_and_weights(
@@ -156,7 +174,9 @@ class SwiftSARSA(nn.Module):
         for i in range(batch_size):
             self.eligibility_traces[i, action[i]] += features[i]
 
-    def _update_adaptive_step_sizes(self, batch_size: int, action: torch.Tensor) -> None:
+    def _update_adaptive_step_sizes(
+        self, batch_size: int, action: torch.Tensor
+    ) -> None:
         """Update adaptive step-sizes with decay for selected actions."""
         for i in range(batch_size):
             self.step_sizes[i, action[i]] = torch.clamp(
