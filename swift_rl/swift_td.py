@@ -139,9 +139,11 @@ class SwiftTD(nn.Module):
         )
 
     def _update_adaptive_step_sizes(self, batch_size: int) -> None:
-        """Update adaptive step-sizes with decay."""
+        """Update adaptive step-sizes based on eligibility trace magnitude."""
+        trace_magnitude = self.eligibility_trace[:batch_size].abs()
+        decay_factor = 1.0 / (1.0 + trace_magnitude * 0.1)
         self.step_sizes[:batch_size] = torch.clamp(
-            self.step_sizes[:batch_size] * 0.99, min=self.alpha * 0.1
+            self.step_sizes[:batch_size] * decay_factor, min=self.alpha * 0.01, max=self.alpha * 10.0
         )
 
     def _apply_weight_update(self, batch_size: int, td_error: torch.Tensor) -> None:

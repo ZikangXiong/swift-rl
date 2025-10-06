@@ -177,10 +177,12 @@ class SwiftSARSA(nn.Module):
     def _update_adaptive_step_sizes(
         self, batch_size: int, action: torch.Tensor
     ) -> None:
-        """Update adaptive step-sizes with decay for selected actions."""
+        """Update adaptive step-sizes based on eligibility trace magnitude."""
         for i in range(batch_size):
+            trace_magnitude = self.eligibility_traces[i, action[i]].abs()
+            decay_factor = 1.0 / (1.0 + trace_magnitude * 0.1)
             self.step_sizes[i, action[i]] = torch.clamp(
-                self.step_sizes[i, action[i]] * 0.99, min=self.alpha * 0.1
+                self.step_sizes[i, action[i]] * decay_factor, min=self.alpha * 0.01, max=self.alpha * 10.0
             )
 
     def _apply_weight_update(
