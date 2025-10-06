@@ -52,32 +52,32 @@
 ## Phase 3.2: Contract Tests (TDD) ⚠️ MUST COMPLETE BEFORE 3.3
 **CRITICAL: These tests MUST be written and MUST FAIL before ANY implementation**
 - [x] T007 [P] Contract test for SwiftTD interface in tests/unit/test_swift_td_contract.py
-- [ ] T008 [P] Contract test for SwiftSARSA interface in tests/unit/test_swift_sarsa_contract.py
-- [ ] T009 [P] Contract test for action selection policies in tests/unit/test_policies_contract.py
-- [ ] T010 [P] Create test fixtures in tests/fixtures/environments.py (simple linear prediction task, tabular MDP)
+- [x] T008 [P] Contract test for SwiftSARSA interface in tests/unit/test_swift_sarsa_contract.py
+- [x] T009 [P] Contract test for action selection policies in tests/unit/test_policies_contract.py
+- [x] T010 [P] Create test fixtures in tests/fixtures/environments.py (simple linear prediction task, tabular MDP)
 
 ## Phase 3.3: Core Implementation (ONLY after contract tests are failing)
 - [x] T011 [P] Implement utility functions in swift_rl/utils.py (validate_tensor_shape, ensure_device_compatibility, masked_reset)
 - [x] T012 Implement SwiftTD module in swift_rl/swift_td.py (__init__, forward, reset, helper methods)
-- [ ] T013 Implement SwiftSARSA module in swift_rl/swift_sarsa.py (__init__, forward, reset, helper methods)
+- [x] T013 Implement SwiftSARSA module in swift_rl/swift_sarsa.py (__init__, forward, reset, helper methods)
 - [x] T014 [P] Implement action selection policies in swift_rl/policies.py (epsilon_greedy, softmax_policy)
 - [x] T015 Update swift_rl/__init__.py to export SwiftTD, SwiftSARSA, and policies
 
 ## Phase 3.4: Unit Tests
-- [ ] T016 [P] Unit tests for SwiftTD initialization in tests/unit/test_swift_td.py
-- [ ] T017 [P] Unit tests for SwiftTD forward pass in tests/unit/test_swift_td.py
-- [ ] T018 [P] Unit tests for SwiftTD reset method in tests/unit/test_swift_td.py
-- [ ] T019 [P] Unit tests for SwiftTD device handling (CPU/GPU) in tests/unit/test_swift_td.py
+- [x] T016 [P] Unit tests for SwiftTD initialization in tests/unit/test_swift_td.py
+- [x] T017 [P] Unit tests for SwiftTD forward pass in tests/unit/test_swift_td.py
+- [x] T018 [P] Unit tests for SwiftTD reset method in tests/unit/test_swift_td.py
+- [x] T019 [P] Unit tests for SwiftTD device handling (CPU/GPU) in tests/unit/test_swift_td.py
 - [ ] T020 [P] Unit tests for SwiftSARSA initialization in tests/unit/test_swift_sarsa.py
 - [ ] T021 [P] Unit tests for SwiftSARSA forward pass in tests/unit/test_swift_sarsa.py
 - [ ] T022 [P] Unit tests for SwiftSARSA reset method in tests/unit/test_swift_sarsa.py
 - [ ] T023 [P] Unit tests for SwiftSARSA device handling in tests/unit/test_swift_sarsa.py
-- [ ] T024 [P] Unit tests for epsilon_greedy policy in tests/unit/test_policies.py
-- [ ] T025 [P] Unit tests for softmax_policy in tests/unit/test_policies.py
-- [ ] T026 [P] Unit tests for utility functions in tests/unit/test_utils.py
+- [x] T024 [P] Unit tests for epsilon_greedy policy in tests/unit/test_policies.py
+- [x] T025 [P] Unit tests for softmax_policy in tests/unit/test_policies.py
+- [x] T026 [P] Unit tests for utility functions in tests/unit/test_utils.py
 
 ## Phase 3.5: Integration Tests
-- [ ] T027 Integration test for SwiftTD convergence on prediction task in tests/integration/test_swift_td_convergence.py
+- [x] T027 Integration test for SwiftTD convergence on prediction task in tests/integration/test_swift_td_convergence.py
 - [ ] T028 Integration test for SwiftSARSA control on tabular MDP in tests/integration/test_swift_sarsa_control.py
 - [ ] T029 Integration test for neural network integration (gradient flow) in tests/integration/test_neural_network_integration.py
 - [ ] T030 Integration test for batch processing scaling (1 to 128 environments) in tests/integration/test_batch_scaling.py
@@ -91,6 +91,7 @@
 - [ ] T036 [P] Create neural network SwiftSARSA example in examples/neural_network_swift_sarsa.py
 - [x] T037 Create README.md with installation instructions, usage examples, and quickstart
 - [x] T038 [P] Verify all docstrings include mathematical formulations and shape comments
+
 
 ## Phase 3.7: Polish & Validation
 - [ ] T039 Run black on all Python files in swift_rl/, tests/, examples/

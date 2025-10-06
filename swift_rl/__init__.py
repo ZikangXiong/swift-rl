@@ -4,6 +4,7 @@
 __version__ = "0.1.0"
 
 from swift_rl.policies import epsilon_greedy, softmax_policy
+from swift_rl.swift_sarsa import SwiftSARSA
 from swift_rl.swift_td import SwiftTD
 
-__all__ = ["SwiftTD", "epsilon_greedy", "softmax_policy"]
+__all__ = ["SwiftTD", "SwiftSARSA", "epsilon_greedy", "softmax_policy"]
