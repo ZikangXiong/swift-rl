@@ -86,9 +86,9 @@
 
 ## Phase 3.6: Examples & Documentation
 - [x] T033 [P] Create standalone SwiftTD example in examples/standalone_swift_td.py
-- [ ] T034 [P] Create standalone SwiftSARSA example in examples/standalone_swift_sarsa.py
-- [ ] T035 [P] Create neural network SwiftTD example in examples/neural_network_swift_td.py
-- [ ] T036 [P] Create neural network SwiftSARSA example in examples/neural_network_swift_sarsa.py
+- [x] T034 [P] Create standalone SwiftSARSA example in examples/standalone_swift_sarsa.py
+- [x] T035 [P] Create neural network SwiftTD example in examples/neural_network_swift_td.py
+- [x] T036 [P] Create neural network SwiftSARSA example in examples/neural_network_swift_sarsa.py
 - [x] T037 Create README.md with installation instructions, usage examples, and quickstart
 - [x] T038 [P] Verify all docstrings include mathematical formulations and shape comments
 
